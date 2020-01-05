@@ -1,0 +1,3 @@
+dashboard:
+    prefix: dashboard
+    resource: "routes/dashboard/routes.yaml"

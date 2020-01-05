@@ -1,0 +1,112 @@
+{% extends 'layouts/auth.html.twig' %}
+{% block content %}
+    <div class="register-container full-height sm-p-t-30">
+        <div class="d-flex justify-content-center flex-column full-height ">
+            <h3>Pages makes it easy to enjoy what matters the most in your life</h3>
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-group-default {% if form_errors(form.firstName)|length > 0 %}has-error{% endif %}">
+                        {{ form_label(form.firstName) }}
+                        {{ form_widget(form.firstName, {'attr': {'class': 'form-control', 'placeholder': 'John'}}) }}
+                    </div>
+                    <label for="" class="error">
+                        {{ form_errors(form.firstName) }}
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-default {% if form_errors(form.lastName)|length > 0 %}has-error{% endif %}">
+                        {{ form_label(form.lastName) }}
+                        {{ form_widget(form.lastName, {'attr': {'class': 'form-control', 'placeholder': 'Smith'}}) }}
+                    </div>
+                    <label for="" class="error">
+                        {{ form_errors(form.lastName) }}
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default {% if form_errors(form.email)|length > 0 %}has-error{% endif %}">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'example@site.com'}}) }}
+                    </div>
+                    <label for="" class="error">
+                        {{ form_errors(form.email) }}
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default {% if form_errors(form.username)|length > 0 %}has-error{% endif %}">
+                        {{ form_label(form.username) }}
+                        {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'john.smith'}}) }}
+                    </div>
+                    <label for="" class="error">
+                        {{ form_errors(form.username) }}
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default {% if form_errors(form.password)|length > 0 %}has-error{% endif %}">
+                        {{ form_label(form.password) }}
+                        {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Don\'t forget to use strong password'}}) }}
+                    </div>
+                    <input type="checkbox" data-init-plugin="switchery" data-size="small" data-color="primary"
+                           id="show_password"/>
+                    <label for="show_password"> &nbsp;Reveal password</label>
+                    <label for="" class="error">
+                        {{ form_errors(form.password) }}
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-group-default {% if form_errors(form.gender)|length > 0 %}has-error{% endif %}">
+                        {{ form_label(form.gender) }}
+                        {{ form_widget(form.gender, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <label for="" class="error">
+                        {{ form_errors(form.gender) }}
+                    </label>
+                </div>
+            </div>
+            <div class="row m-t-10">
+                <div class="col-lg-6">
+                    <p>
+                        <small>
+                            I agree to the
+                            <a href="#" class="text-info">Pages Terms</a> and
+                            <a href="#" class="text-info">Privacy</a>.
+                        </small>
+                    </p>
+                </div>
+            </div>
+            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-cons m-t-10'}}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class=" full-width">
+        <div class="register-container m-b-10 clearfix">
+            <div class="m-b-30 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix d-flex-md-up">
+                <div class="col-md-9 no-padding d-flex align-items-center">
+                    <p class="hinted-text small inline sm-p-t-10">No part of this website or any of its contents may be
+                        reproduced, copied, modified or adapted, without the prior written consent of the author, unless
+                        otherwise indicated for stand-alone materials.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block customJS %}
+    <script>
+        $('#show_password').on('change', function () {
+            let password = $('#user_password');
+
+            $(this).prop('checked') ?
+                password.attr('type', 'text') :
+                password.attr('type', 'password');
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,7 @@
+dashboard_index:
+    path: /
+    controller: App\Controller\Dashboard\ShowDashboardAction
+    
+dashboard_graph:
+    path: /graph
+    controller: App\Controller\Graph\ShowGraphAction
